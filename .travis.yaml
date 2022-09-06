@@ -1,0 +1,22 @@
+language:node_js
+ node_js:
+  - 13
+
+  services:
+   - docker
+
+#pre-resting installs
+install:
+  - echo "nothing should be instslled"
+
+before_script:
+  - echo "no tests"
+
+script:
+- docker --version
+- docker build -t simple-node .
+- docker tag env-node dante9623/env-node:latest
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push dante9623/env-node
