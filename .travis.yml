@@ -1,9 +1,9 @@
-language:node_js
+language: node_js
 node_js:
   - 13
 
 services:
-   - docker
+  - docker
 
 #pre-resting installs
 install:
@@ -13,9 +13,9 @@ before_script:
   - echo "no tests"
 
 script:
-- docker --version
-- docker build -t env-node --build-arg NAME=${NAME}  .
-- docker tag env-node dante9623/env-node:latest
+  - docker --version
+  - docker build -t env-node --build-arg NAME=${NAME}  .
+  - docker tag env-node dante9623/env-node:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
