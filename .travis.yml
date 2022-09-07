@@ -19,4 +19,4 @@ script:
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push dante9623/env-node
+  - docker push dante9623/env-node:latest
