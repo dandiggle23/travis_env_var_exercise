@@ -18,5 +18,5 @@ script:
   - docker tag env-node dante9623/env-node:latest
 
 after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u “myusername” -p “mypassword” docker.io
   - docker push dante9623/env-node
